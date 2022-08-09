@@ -60,7 +60,7 @@ class player:
             self.inj = atts[9]
             self.genovr()
         else:
-            raise Exception("Player generation failed: Parameter atts must be a 10-int list or player object")
+            raise Exception('Player generation failed: Parameter "atts" must be a 10-int list or <player> object')
     def exportList(self):
         return [self.io, self.oo, self.pas, self.drb, self.id,
                 self.od, self.blk, self.stl, self.stm, self.inj]
