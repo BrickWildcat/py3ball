@@ -1,5 +1,29 @@
 from functions import *
+import random
 
+fname = ['John', 'James', 'Lebron', 'Steph', 'Seth', 'Steven', 'Jrue', 'Giannis', 'Cade', 'Kevin',
+         'Kyrie', 'Julius', 'Taquavion', 'Terrel', 'Vince', 'Michael', 'Scott', 'Scottie',
+         'Quentin', 'Brian', 'Isaac', 'Aaron', 'Freddy', 'Freidrich', 'Dirk', 'Micah', 'Luka',
+         'Boban', 'Pascal', 'Karl', 'Carl', 'Jonah', 'Jonas', 'Lukas', 'Rhys', 'Peter', 'Mark',
+         'Marcus', 'Jeffrey', 'Darrel', 'William', 'Bill', 'Will', 'Zion', 'Ja', 'Wesley', 'Harry',
+         'Xavier', 'Xavien', 'Gerald', 'Xander', 'Renald', 'Howard', 'Hakeem', 'Kareem', 'Bol',
+         'Manute', 'Rudy', 'Dennis']
+lname = ['Johnson', 'James', 'Evans', 'Curry', 'Holiday', 'Antetokounmpo', 'Cunningham', 'Durant',
+         'Irving', 'Owens', 'Carter', 'Jordan', 'Afton', 'Harmon', 'Scalabrine', 'Bey', 'Thomas',
+         'Newton', 'Okoro', 'Gordon', 'VanVleet', 'Novitski', 'Parsons', 'Doncic', 'Marianovic',
+         'Siakam', 'Weezer', 'Volker', 'Valanciunas', 'Monty', 'LeFranc', 'Jefferies', 'Reynolds',
+         'Williamson', 'Morant', 'Matthews', 'Potter', 'Harold', 'Ford', 'Wellington', 'Howard',
+         'Olajuwon', 'Abdul-Jabbar', 'Bol', 'Gobert', 'Rodman']
+city = ['Atlanta', 'Detroit', 'Denver', 'Chicago', 'Los Angeles', 'San Diego', 'New York',
+        'Brooklyn', 'Minneapolis', 'Milwaukee', 'Salt Lake', 'New Orleans', 'Dallas',
+        'San Antonio', 'Houston', 'Oklahoma City', 'St Louis', 'San Francisco', 'Toronto',
+        'Boston', 'Philadelphia', 'Pittsburgh', 'Washington DC', 'Seattle', 'Portland',
+        'Sacramento', 'Phoenix', 'Charlotte', 'Indianapolis', 'Orlando', 'Miami', 'Jacksonville',
+        'Memphis', 'Cleveland']
+cabr = ['ATL', 'DET', 'DEN', 'CHI', 'LA', 'SD', 'NY', 'BKN', 'MIN', 'MIL', 'SAL', 'NO', 'DAL', 'SA',
+        'HOU', 'OKC', 'STL', 'SF', 'TOR', 'BOS', 'PHI', 'PIT', 'DC', 'SEA', 'POR', 'SAC', 'PHX',
+        'CHA', 'IND', 'ORL', 'MIA', 'JAC', 'MEM', 'CLE']
+mascot = []
 
 class player:
     def genovr(self):
@@ -22,6 +46,8 @@ class player:
         self.pos = self.ovrlist.index(max(self.ovrlist)) + 1
 
     def randgen(self, bounds=[0,113.8], pos=-1):
+        self.fname = random.choice(fname)
+        self.lname = random.choice(lname)
         self.ovr = -2
         self.pos = -2
         while self.ovr>bounds[1] or self.ovr<bounds[0] or pos != self.pos:
@@ -84,7 +110,10 @@ class player:
 
 
 class team:
-    def __init__(self, size=10, ovrs=[70, 99, 50, 85]):
+    def __init__(self, size=10, impt=0, ovrs=[70, 99, 50, 85]):
+        self.city = random.choice(city)
+        self.cabr = random.choice(cabr)
+        #self.mascot = random.choice(mascot)
         self.roster = []
         for i in range(5):
             self.roster.append(player([ovrs[0],ovrs[1]],i+1))
